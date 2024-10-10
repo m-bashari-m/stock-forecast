@@ -43,7 +43,7 @@ class DataWindow():
         
         return inputs, labels
     
-    def plot(self, model=None, plot_col='traffic_volume', max_subplots=3):
+    def plot(self, model=None, plot_col='close', max_subplots=3):
         inputs, labels = self.sample_batch
         
         plt.figure(figsize=(12, 8))
