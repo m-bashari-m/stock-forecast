@@ -1,3 +1,8 @@
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+
 class DataWindow():
     def __init__(self, input_width, label_width, shift, 
                  train_df, val_df, test_df, 
