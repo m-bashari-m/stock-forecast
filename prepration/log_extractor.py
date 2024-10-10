@@ -1,7 +1,7 @@
 import os
 
 def process_logs(input_file, output_file):
-    with open(input_file, 'r') as infile, open(output_file, 'a') as outfile:  # Using 'a' to append to the output file
+    with open(input_file, 'r', encoding='utf-8') as infile, open(output_file, 'w', encoding='utf-8') as outfile: 
         for line in infile:
             line = line.replace("\t", " ")
             parts = line.split(" ")
@@ -11,6 +11,7 @@ def process_logs(input_file, output_file):
             outfile.write(f'{year},{month},{day},{hour},{minute},{data_section}')
 
     print(f"Data from {input_file} extracted and written to {output_file}")
+    
 
 def process_folder_logs(logs_folder_path, output_file):
 
@@ -27,6 +28,7 @@ def process_folder_logs(logs_folder_path, output_file):
         file_path = os.path.join(logs_folder_path, file)
         if os.path.isfile(file_path):
             process_logs(file_path, output_file)
+            
 
 if __name__ == "__main__": 
-    process_folder_logs("./pre_process/raw_logs", "./pre_process/data/data.csv")
+    process_folder_logs("./prepration/raw_logs", "./prepration/data/data.csv")
